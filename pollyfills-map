@@ -1,0 +1,28 @@
+
+const items = [2,4,6,8];
+
+Array.prototype.myMap = function (cb) {
+
+  // Here this refers to actual array.
+  // this[i] - refers to each item
+  // this.length - refres to actual array length
+  // i - referes to index
+  
+  let temp = [];
+  for(let i=0; i< this.length; i++) {
+    temp.push(cb(this[i], i, items));
+  }
+  return temp;
+}
+
+let newItems = items.myMap((item, i, items) => {
+  return item * 3; 
+});
+
+//Map Function
+// let newItems = items.map((item, i, items) => {
+//  return item * 3; 
+// });
+
+//Output
+console.log(newItems); // [6, 12, 18, 24]
