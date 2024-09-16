@@ -1,0 +1,16 @@
+  const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];
+  
+  Array.prototype.myFilter = function (cb) {
+     let temp = [];
+     for (let i=0; i<this.length; i++) {
+       if (cb(this[i], i, this)) {
+         temp.push(this[i]);
+       }
+     }
+     return temp;
+  };
+  // const result = words.filter((word) => word.length > 6);
+  const result = words.myFilter((word) => word.length > 6);
+
+  console.log(result);
+  // Expected output: Array ["exuberant", "destruction", "present"]
